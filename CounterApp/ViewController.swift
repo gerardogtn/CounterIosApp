@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     setUpLabel()
     setUpIncrementButton()
+    setUpDecrementButton()
   }
   
   func setUpLabel() {
@@ -29,11 +30,20 @@ class ViewController: UIViewController {
   
   func setUpIncrementButton() {
     let button = UIButton()
-    button.frame = CGRectMake(150, 350, 90, 90)
-    button.setTitle("Count", forState: UIControlState.Normal)
+    button.frame = CGRectMake(50, 350, 90, 90)
+    button.setTitle("Inc", forState: .Normal)
     button.setTitleColor(UIColor.blueColor(), forState: .Normal)
     
     button.addTarget(self, action: #selector(ViewController.incrementCount), forControlEvents: UIControlEvents.TouchUpInside)
+    self.view.addSubview(button)
+  }
+  
+  func setUpDecrementButton() {
+    let button = UIButton()
+    button.frame = CGRectMake(150, 350, 90, 90)
+    button.setTitle("Dec", forState: .Normal)
+    button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+    button.addTarget(self, action: #selector(ViewController.decrementCount), forControlEvents: .TouchUpInside)
     self.view.addSubview(button)
   }
 
@@ -47,6 +57,10 @@ class ViewController: UIViewController {
     self.label.text = "\(self.count)"
   }
 
+  func decrementCount() {
+    self.count -= 1
+    self.label.text = "\(self.count)"
+  }
 
 }
 
