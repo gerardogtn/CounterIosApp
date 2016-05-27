@@ -12,12 +12,14 @@ class ViewController: UIViewController {
   
   var count : Int = 0
   var label : UILabel!
+  var isDarkBackground = true
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpLabel()
     setUpIncrementButton()
     setUpDecrementButton()
+    setUpToggleBackgroundButton()
   }
   
   func setUpLabel() {
@@ -30,7 +32,7 @@ class ViewController: UIViewController {
   
   func setUpIncrementButton() {
     let button = UIButton()
-    button.frame = CGRectMake(50, 350, 90, 90)
+    button.frame = CGRectMake(100, 350, 90, 90)
     button.setTitle("Inc", forState: .Normal)
     button.setTitleColor(UIColor.blueColor(), forState: .Normal)
     
@@ -40,10 +42,19 @@ class ViewController: UIViewController {
   
   func setUpDecrementButton() {
     let button = UIButton()
-    button.frame = CGRectMake(150, 350, 90, 90)
+    button.frame = CGRectMake(200, 350, 90, 90)
     button.setTitle("Dec", forState: .Normal)
     button.setTitleColor(UIColor.blueColor(), forState: .Normal)
     button.addTarget(self, action: #selector(ViewController.decrementCount), forControlEvents: .TouchUpInside)
+    self.view.addSubview(button)
+  }
+  
+  func setUpToggleBackgroundButton() {
+    let button = UIButton()
+    button.frame = CGRectMake(100, 450, 200, 200)
+    button.setTitle("Toggle background", forState: .Normal)
+    button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+    button.addTarget(self, action: #selector(ViewController.toggleBackground), forControlEvents: .TouchUpInside)
     self.view.addSubview(button)
   }
 
@@ -62,5 +73,15 @@ class ViewController: UIViewController {
     self.label.text = "\(self.count)"
   }
 
+  func toggleBackground() {
+    if self.isDarkBackground {
+      self.view.backgroundColor = UIColor.redColor()
+    } else {
+      self.view.backgroundColor = UIColor.whiteColor()
+    }
+    self.isDarkBackground = !self.isDarkBackground
+  
+  }
+  
 }
 
