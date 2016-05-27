@@ -23,18 +23,18 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  func incrementCount() {
+  @IBAction func incrementCount() {
     self.count += 1
     self.label.text = "\(self.count)"
   }
 
-  func decrementCount() {
+  @IBAction func decrementCount() {
     self.count -= 1
     self.label.text = "\(self.count)"
   }
 
-  func toggleBackground() {
-    if !self.isLightBackground {
+  @IBAction func toggleBackground() {
+    if self.isLightBackground {
       self.view.backgroundColor = UIColor.redColor()
     } else {
       self.view.backgroundColor = UIColor.whiteColor()

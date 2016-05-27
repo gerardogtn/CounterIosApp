@@ -3,6 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +19,66 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoC-7j-aQj">
+                                <rect key="frame" x="295" y="95" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOl-Et-AAF">
+                                <rect key="frame" x="141" y="284" width="78" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="rQ0-i7-eGv"/>
+                                </constraints>
+                                <state key="normal" title="Increment"/>
+                                <connections>
+                                    <action selector="incrementCount" destination="BYZ-38-t0r" eventType="touchUpInside" id="9rr-Vy-OLP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzK-2F-k3o">
+                                <rect key="frame" x="388" y="281" width="96" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="Da6-Re-ZsX"/>
+                                </constraints>
+                                <state key="normal" title="Decrement"/>
+                                <connections>
+                                    <action selector="decrementCount" destination="BYZ-38-t0r" eventType="touchUpInside" id="YMM-41-46N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccl-rM-Vqx">
+                                <rect key="frame" x="212" y="472" width="176" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="176" id="tNF-NZ-QMr"/>
+                                </constraints>
+                                <state key="normal" title="Toggle Background color"/>
+                                <connections>
+                                    <action selector="toggleBackground" destination="BYZ-38-t0r" eventType="touchUpInside" id="Anl-uX-MLv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XzK-2F-k3o" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="261" id="0yk-Nr-v3J"/>
+                            <constraint firstItem="zoC-7j-aQj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="1ve-M9-VRc"/>
+                            <constraint firstItem="hOl-Et-AAF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3p2-tF-UCP"/>
+                            <constraint firstItem="ccl-rM-Vqx" firstAttribute="centerX" secondItem="zoC-7j-aQj" secondAttribute="centerX" id="OG4-0U-Q7c"/>
+                            <constraint firstItem="XzK-2F-k3o" firstAttribute="baseline" secondItem="hOl-Et-AAF" secondAttribute="firstBaseline" id="Vuw-VY-giT"/>
+                            <constraint firstItem="zoC-7j-aQj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bVk-oT-3TL"/>
+                            <constraint firstItem="hOl-Et-AAF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="264" id="dBH-Bp-N3T"/>
+                            <constraint firstItem="hOl-Et-AAF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="141" id="hyK-g0-HAP"/>
+                            <constraint firstItem="hOl-Et-AAF" firstAttribute="baseline" secondItem="XzK-2F-k3o" secondAttribute="firstBaseline" id="vbZ-fw-len"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ccl-rM-Vqx" secondAttribute="bottom" constant="98" id="wW0-X8-WKx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XzK-2F-k3o" secondAttribute="trailing" constant="96" id="zJF-Ry-pwN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="zoC-7j-aQj" id="3Mp-Ob-HO0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="300"/>
         </scene>
     </scenes>
 </document>
